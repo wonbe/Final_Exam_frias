@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Update repository Index (CentOS)
+    tags: always
+    yum:
+      name: "*"
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "CentOS"
+
+  - name: Update repository index (Ubuntu)
+    tags: always
+    apt:
+      update_cache: yes
+    changed_when: false
+    when: ansible_distribution == "Ubuntu"
+  
+  - name: Banner MOTD
+    copy:
+      content: "Ansible managed by Frias \n"
+      dest: /etc/motd
+
+- hosts: all
+  become: true
+  roles:
+      - promentheus
+      - apache2
