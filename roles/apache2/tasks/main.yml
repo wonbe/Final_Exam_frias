@@ -1,5 +1,5 @@
 ---
-  - name: Install apache2 for Ubuntu
+  - name: Installing the  apache2 for Ubuntu
     apt: 
       name: apache2
       state: latest        
@@ -11,13 +11,13 @@
       state: latest         
     when: ansible_distribution == "Ubuntu"
 
-  - name: Install apache2 for CentOS
+  - name: Installing the apache2 for CentOS
     yum: 
       name: httpd
       state: latest
     when: ansible_distribution == "CentOS"
 
-  - name: Install PHP packages for CentOS
+  - name: Installing the PHP packages for CentOS
     yum: 
       name: php
       state: latest

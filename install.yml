@@ -3,7 +3,7 @@
   become: true
   pre_tasks:
 
-  - name: Update repository Index (CentOS)
+  - name: Update the repository Index (CentOS)
     tags: always
     yum:
       name: "*"
@@ -11,7 +11,7 @@
     changed_when: false
     when: ansible_distribution == "CentOS"
 
-  - name: Update repository index (Ubuntu)
+  - name: Update the repository index (Ubuntu)
     tags: always
     apt:
       update_cache: yes
