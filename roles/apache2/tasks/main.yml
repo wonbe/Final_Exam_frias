@@ -1,11 +1,11 @@
 ---
-  - name: Installing the  apache2 for Ubuntu
+  - name: Installing the apache2 for Ubuntu
     apt: 
       name: apache2
       state: latest        
     when: ansible_distribution == "Ubuntu"
 
-  - name: Install PHP for Ubuntu
+  - name: Installing the PHP for Ubuntu
     apt: 
       name: libapache2-mod-php
       state: latest         
